@@ -5,9 +5,22 @@ import java.util.List;
 import model.BaseModel;
 
 public interface BaseRepository<T extends BaseModel<ID>, ID> {
-    void add(T entity);
-    void remove(T entity);
-    void update(T entity);
-    List<T> getAll();
-    T findById(ID id);
+
+    default void salvar(T entity) {
+        entity.setId(criarId());
+        persistir(entity);
+    }
+
+    void persistir(T entity);
+
+    ID criarId();
+
+    void atualizar(T entity);
+
+    T getById(ID id);
+
+    List<T> listarTodos();
+
+    void excluir(T entity);
+
 }

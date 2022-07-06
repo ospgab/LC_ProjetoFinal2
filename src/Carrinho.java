@@ -1,6 +1,8 @@
 import java.math.BigDecimal;
 import java.util.ArrayList;
 
+import model.Produto;
+
 public class Carrinho {
 
     private ArrayList<Produto> listaDeProdutos;
