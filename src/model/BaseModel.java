@@ -1,4 +1,4 @@
-package org.example.model;
+package model;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
