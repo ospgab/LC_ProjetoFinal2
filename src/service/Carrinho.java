@@ -1,6 +1,9 @@
+package service;
+
 import java.math.BigDecimal;
 import java.util.ArrayList;
 
+import model.Cliente;
 import model.Produto;
 
 public class Carrinho {

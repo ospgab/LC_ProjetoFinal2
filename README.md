@@ -1,6 +1,6 @@
 ## Descrição
 Entidades
-- O cliente pode ser PessoaFisica ou PessoaJuridica
+- O cliente pode ser model.PessoaFisica ou model.PessoaJuridica
 
 Requisitos Funcionais
 - Criar um método para listar os itens no carrinho (Produto, Quantidade, Preço Unitário e Total por item)

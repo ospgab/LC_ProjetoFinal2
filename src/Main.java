@@ -1,3 +1,6 @@
+import model.*;
+import service.Carrinho;
+
 import java.math.BigDecimal;
 import java.util.ArrayList;
 
@@ -5,7 +8,7 @@ import java.time.LocalDate;
 
 public class Main {
     public static void main(String[] args) {
-        Pessoa p1 = new ClientePF();
+        Pessoa p1 = new PessoaFisica();
         p1.setNome("Maria antonieta");
         p1.setSenha(123456);
         Endereco end = new Endereco();

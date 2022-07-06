@@ -1,3 +1,5 @@
+package model;
+
 public abstract class Empregados extends Pessoa{
 
     private String login;

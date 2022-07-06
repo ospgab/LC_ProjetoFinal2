@@ -1,3 +1,7 @@
+package service;
+
+import model.Cartao;
+
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;

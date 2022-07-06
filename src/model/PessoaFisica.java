@@ -1,8 +1,10 @@
-public class ClientePF extends Pessoa{
+package model;
+
+public class PessoaFisica extends Pessoa{
 
     private String cpf;
 
-    public ClientePF(String cpf) {
+    public PessoaFisica(String cpf) {
         super();
         this.cpf = cpf;
     }

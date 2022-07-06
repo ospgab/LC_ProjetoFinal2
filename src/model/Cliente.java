@@ -1,4 +1,8 @@
-public class Cliente {
+package model;
+
+import service.Pagamento;
+
+public class Cliente <T extends Pessoa>{
 
     private Pessoa cliente;
     private Endereco endereco;
