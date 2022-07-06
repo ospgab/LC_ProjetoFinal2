@@ -5,6 +5,11 @@ public class Cliente {
     private Pagamento pagamento;
 
 
+    public Cliente(Pessoa cliente, Endereco endereco) {
+        this.cliente = cliente;
+        this.endereco = endereco;
+    }
+
     public String getNome() {
         return cliente.getNome();
     }

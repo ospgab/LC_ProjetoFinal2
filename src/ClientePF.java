@@ -2,8 +2,16 @@ public class ClientePF extends Pessoa{
 
     private String cpf;
 
-    public ClientePF(String nome, int senha, String cpf) {
-        super(nome, senha);
+    public ClientePF(String cpf) {
+        super();
+        this.cpf = cpf;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 }

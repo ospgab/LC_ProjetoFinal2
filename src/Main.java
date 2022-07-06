@@ -1,9 +1,25 @@
 import java.math.BigDecimal;
 import java.util.ArrayList;
 
+import java.time.LocalDate;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        Pessoa p1 = new ClientePF();
+        p1.setNome("Maria antonieta");
+        p1.setSenha(123456);
+        Endereco end = new Endereco();
+        end.setBairro("Asa Norte");
+        end.setCidade("Brasília");
+        end.setEstado("DF");
+        end.setTipoDoEndereco("Apartamento");
+        end.setRua("L2");
+        end.setLote("15");
+        end.setNumero("5");
+        Cartao cartao = new Cartao(400465252, 352, LocalDate.now());
+        Cliente novo = new Cliente(p1, end);
+
+        System.out.println(novo.getNome());
 
         testCarrinho();
     }
