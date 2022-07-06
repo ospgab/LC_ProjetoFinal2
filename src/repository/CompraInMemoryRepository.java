@@ -1,11 +1,16 @@
 package repository;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 
 import model.Compra;
 
 public class CompraInMemoryRepository implements BaseRepository<Compra, Long> {
+
+    private final List<Compra> listaCompra = new ArrayList<>();
 
     @Override
     public void salvar(Compra entity) {
