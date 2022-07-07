@@ -8,9 +8,11 @@ public class Cliente <T extends Pessoa>{
     private Endereco endereco;
     private Pagamento pagamento;
 
-
-    public Cliente(Pessoa cliente, Endereco endereco) {
+    public void setCliente(Pessoa cliente) {
         this.cliente = cliente;
+    }
+
+    public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
     }
 
