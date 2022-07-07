@@ -31,6 +31,10 @@ public interface BaseRepository<T extends BaseModel<ID>, ID> {
 
     void excluir(T entity);
 
-    T buscarPorId(ID id);
+    /*default T buscarPorId(ID id) {
+        return getDados().get(id);
+    }
+
+     */
 
 }

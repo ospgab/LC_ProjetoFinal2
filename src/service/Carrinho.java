@@ -57,17 +57,18 @@ public class Carrinho {
     }
 
     public void listar() {
+        System.out.println("Produtos no carrinho:");
         for (int i = 0; i < listaDeProdutos.size(); i++) {
             StringBuilder strBuilder = new StringBuilder();
-            strBuilder.append("Produtos no carrinho:\n");
-            strBuilder.append("Código: ");
+            strBuilder.append("\t |\t Código: ");
             strBuilder.append(this.listaDeProdutos.get(i).getCodigo());
-            strBuilder.append(", Nome: ");
+            strBuilder.append("\t Nome: ");
             strBuilder.append(this.listaDeProdutos.get(i).getNome());
-            strBuilder.append(", Quantidade: ");
+            strBuilder.append("\t Quantidade: ");
             strBuilder.append(this.listaDeProdutos.get(i).getQuantidade());
-            strBuilder.append(", Preço: ");
+            strBuilder.append("\t Preço: ");
             strBuilder.append(this.listaDeProdutos.get(i).getPreco());
+            strBuilder.append("\t|");
 
             System.out.println(strBuilder.toString());
         }

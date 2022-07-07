@@ -44,7 +44,12 @@ public class Main {
         carrinho.add(produto, 3);
         carrinho.add(produto2, 1);
 
+
+
         carrinho.listar();
         System.out.println("Total: " + carrinho.getTotalCompra());
+
+
+
     }
 }
