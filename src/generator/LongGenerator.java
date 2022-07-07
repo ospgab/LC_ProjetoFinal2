@@ -1,9 +1,21 @@
 package generator;
 
-public class LongGenerator implements Generator<Long> {
+public class LongGenerator extends Generator<Long> {
+    private static Generator<Long> instance;
     private static Long value = 0L;
 
-    public Long next(){
+    private LongGenerator() {
+    }
+
+    @Override
+    public Long next() {
         return value++;
+    }
+
+    @Override
+    public Generator<Long> getInstance() {
+        if (instance == null)
+            instance = new LongGenerator();
+        return instance;
     }
 }

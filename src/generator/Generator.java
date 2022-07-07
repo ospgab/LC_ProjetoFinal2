@@ -1,5 +1,7 @@
 package generator;
 
-public interface Generator<T> {
-    T next();
+public abstract class Generator<T> {
+    public abstract Generator<T> getInstance();
+
+    public abstract T next();
 }

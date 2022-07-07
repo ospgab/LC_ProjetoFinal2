@@ -1,57 +1,52 @@
 package repository;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.Random;
 
 import model.Compra;
 
 public class CompraInMemoryRepository implements BaseRepository<Compra, Long> {
 
+    private static CompraInMemoryRepository instance;
     private final List<Compra> listaCompra = new ArrayList<>();
 
-    @Override
-    public void salvar(Compra entity) {
-        BaseRepository.super.salvar(entity);
-        System.out.println();
+    private CompraInMemoryRepository() {
+    }
+
+    public static CompraInMemoryRepository getInstance() {
+        if (instance == null)
+            instance = new CompraInMemoryRepository();
+        return instance;
     }
 
     @Override
-    public void persistir(Compra entity) {
-        // Salvar Compra
-
-    }
-
-    @Override
-    public Long criarId() {
-        return new Random().nextLong();
-    }
-
-    @Override
-    public void atualizar(Compra Compra) {
-
+    public void update(Compra entity) {
+        this.delete(entity);
+        this.persist(entity);
     }
 
     @Override
     public Compra getById(Long id) {
-        return null;
+        return this.listaCompra.stream()
+                .filter(compra -> compra.getId() == id)
+                .findAny()
+                .orElse(null);
     }
 
     @Override
-    public List<Compra> listarTodos() {
-        return null;
+    public List<Compra> getAll() {
+        return List.copyOf(this.listaCompra);
     }
 
     @Override
-    public void excluir(Compra entity) {
-
+    public void delete(Compra entity) {
+        this.listaCompra.remove(entity);
     }
 
-
-    public Compra buscarPorId(Long id) {
-        // TODO Auto-generated method stub
-        return null;
+    @Override
+    public void persist(Compra entity) {
+        this.listaCompra.add(entity);
     }
+
+    
 }

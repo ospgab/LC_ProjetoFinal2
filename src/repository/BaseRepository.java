@@ -1,40 +1,50 @@
 package repository;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.List;
-import java.util.Map;
 
+import generator.GeneratedValue;
+import generator.GenerationType;
+import generator.Generator;
+import generator.LongGenerator;
 import model.BaseModel;
+import utils.ReflectionUtils;
 
 public interface BaseRepository<T extends BaseModel<ID>, ID> {
 
-    default void salvar(T entity) {
-        entity.setId(criarId());
-        //getDados().put(entity.getId(), entity);
-        persistir(entity);
-    }
+    
 
-    void persistir(T entity);
+    void persist(T entity);
+    // default void persist(T entity) {
+    //     // GeneratedValue field = ReflectionUtils.getAnnotation(GeneratedValue.class);
+    //     // GenerationType g = field.strategy();
+    //     // Generator<ID> generator = getGenerator(LongGenerator.class);
+    //     // switch (g) {
+    //     //     case SEQUENCE:
+    //     //         entity.setId(generator.getInstance().next());
+    //     // }
 
-    ID criarId();
+    //     //entity.setId(null); // TODO autogenerate ID
+        
 
-    void atualizar(T entity);
+    // };
+
+    void update(T entity);
 
     T getById(ID id);
 
-    List<T> listarTodos();
+    List<T> getAll();
 
-    // default List<T> listarTodos() {
-    // final List<T> lista = new ArrayList<>(getDados().values());
-    // Collections.sort(lista);
-    // return lista;
-    // }
+    void delete(T entity);
 
-    void excluir(T entity);
+    default Generator<ID> getGenerator(Class<? extends Generator<?>> generatorClass) {
+        try {
+            return (Generator<ID>) generatorClass.getDeclaredMethod("getInstance").invoke(null);
+        } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException | NoSuchMethodException
+                | SecurityException e) {
+            e.printStackTrace();
+        }
 
-    /*default T buscarPorId(ID id) {
-        return getDados().get(id);
+        return null;
     }
-
-     */
-
 }
