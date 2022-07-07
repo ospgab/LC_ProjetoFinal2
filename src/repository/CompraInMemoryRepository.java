@@ -48,4 +48,10 @@ public class CompraInMemoryRepository implements BaseRepository<Compra, Long> {
     public void excluir(Compra entity) {
 
     }
+
+    @Override
+    public Compra buscarPorId(Long id) {
+        // TODO Auto-generated method stub
+        return null;
+    }
 }
