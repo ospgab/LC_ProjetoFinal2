@@ -20,7 +20,9 @@ public class Main {
         end.setLote("15");
         end.setNumero("5");
         Cartao cartao = new Cartao(400465252, 352, LocalDate.now());
-        Cliente novo = new Cliente(p1, end);
+        Cliente novo = new Cliente();
+        novo.setCliente(p1);
+        novo.setEndereco(end);
 
         System.out.println(novo.getNome());
 
