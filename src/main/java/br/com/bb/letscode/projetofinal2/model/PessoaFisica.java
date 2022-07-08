@@ -10,7 +10,14 @@ public class PessoaFisica extends Pessoa{
         return cpf;
     }
 
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
+
+    @Override
+    public String getDocumento() {
+        return this.cpf;
+    }
+
+    @Override
+    public void setDocumento(String numero) {
+        this.cpf = numero;
     }
 }

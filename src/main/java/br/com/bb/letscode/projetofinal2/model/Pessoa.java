@@ -22,4 +22,8 @@ public abstract class Pessoa {
     public void setSenha(int senha) {
         this.senha = senha;
     }
+
+    public abstract String getDocumento();
+
+    public abstract void setDocumento (String numero);
 }
