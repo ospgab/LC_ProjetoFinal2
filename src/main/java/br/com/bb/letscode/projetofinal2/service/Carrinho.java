@@ -2,13 +2,14 @@ package br.com.bb.letscode.projetofinal2.service;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.List;
 
 import br.com.bb.letscode.projetofinal2.model.Cliente;
 import br.com.bb.letscode.projetofinal2.model.Produto;
 
 public class Carrinho {
 
-    private ArrayList<Produto> listaDeProdutos;
+    private List<Produto> listaDeProdutos;
 
     private BigDecimal totalCompra;
 
@@ -16,7 +17,7 @@ public class Carrinho {
 
     private Cliente client;
 
-    public Carrinho(ArrayList<Produto> listaDeProdutos, BigDecimal frete, Cliente client) {
+    public Carrinho(List<Produto> listaDeProdutos, BigDecimal frete, Cliente client) {
         setListaDeProdutos(listaDeProdutos);
         setFrete(frete);
         setClient(client);
@@ -74,11 +75,11 @@ public class Carrinho {
         }
     }
 
-    public ArrayList<Produto> getListaDeProdutos() {
+    public List<Produto> getListaDeProdutos() {
         return this.listaDeProdutos;
     }
 
-    public void setListaDeProdutos(ArrayList<Produto> listaDeProdutos) {
+    public void setListaDeProdutos(List<Produto> listaDeProdutos) {
         this.listaDeProdutos = listaDeProdutos;
     }
 
