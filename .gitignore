@@ -84,6 +84,9 @@ buildNumber.properties
 .mvn/timing.properties
 .mvn/wrapper/maven-wrapper.jar
 .m2/
+### Draw.io ###
+*drawio.dtmp
+
 ### VisualStudioCode ###
 .vscode/*
 !.vscode/settings.json
