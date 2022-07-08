@@ -14,6 +14,8 @@ public class Produto {
 
     private Integer quantidade;
 
+    private TipoProduto tipoProduto;
+
     public Produto(String nome, Integer codigo, BigDecimal preco, BigDecimal desconto, Integer quantidade) {
         setNome(nome);
         setCodigo(codigo);
@@ -30,39 +32,59 @@ public class Produto {
         return nome;
     }
 
-    public void setNome(String nome) {
+    public Produto setNome(String nome) {
         this.nome = nome;
+        return this;
     }
 
     public Integer getCodigo() {
         return codigo;
     }
 
-    public void setCodigo(Integer codigo) {
+    public Produto setCodigo(Integer codigo) {
         this.codigo = codigo;
+        return this;
     }
 
     public BigDecimal getPreco() {
         return preco;
     }
 
-    public void setPreco(BigDecimal preco) {
+    public Produto setPreco(BigDecimal preco) {
         this.preco = preco;
+        return this;
     }
 
     public BigDecimal getDesconto() {
         return desconto;
     }
 
-    public void setDesconto(BigDecimal desconto) {
+    public Produto setDesconto(BigDecimal desconto) {
         this.desconto = desconto;
+        return this;
     }
 
     public Integer getQuantidade() {
         return quantidade;
     }
 
-    public void setQuantidade(Integer quantidade) {
+    public Produto setQuantidade(Integer quantidade) {
         this.quantidade = quantidade;
+        return this;
     }
+
+    public TipoProduto getTipoProduto() {
+        return tipoProduto;
+    }
+
+    public Produto setTipoProduto(TipoProduto tipoProduto) {
+        this.tipoProduto = tipoProduto;
+        return this;
+    }
+
+    @Override
+    public String toString() {
+        return "Produto [nome=" + nome + "]";
+    }
+
 }

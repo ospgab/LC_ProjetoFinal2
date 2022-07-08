@@ -24,4 +24,9 @@ public class Cliente <T extends Pessoa>{
         return endereco.toString();
     }
 
+    @Override
+    public String toString() {
+        return "Cliente [cliente=" + cliente + "]";
+    }
+
 }
