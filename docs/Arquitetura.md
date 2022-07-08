@@ -1,7 +1,7 @@
 # Relatório da arquitetura
 
 Model 
- - O cliente pode ser model.PessoaFisica ou model.PessoaJuridica
+ - O cliente pode ser PessoaFisica ou PessoaJuridica
 
 Service
  - Criar um método para listar os itens no carrinho (Produto, Quantidade, Preço Unitário e Total por item)
