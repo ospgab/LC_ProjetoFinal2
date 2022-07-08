@@ -3,6 +3,7 @@ package br.com.bb.letscode.projetofinal2;
 import br.com.bb.letscode.projetofinal2.model.*;
 import br.com.bb.letscode.projetofinal2.repository.CompraInMemoryRepository;
 import br.com.bb.letscode.projetofinal2.service.Carrinho;
+import br.com.bb.letscode.projetofinal2.service.Configuracao;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -35,6 +36,7 @@ public class Main {
 
         testCarrinho();
         testCompraRepository();
+        testConfiguracao();
     }
 
     public static void testCarrinho() {
@@ -83,5 +85,13 @@ public class Main {
         compraInMemoryRepository.persist(compra);
 
         System.out.println(compraInMemoryRepository.getAll());
+    }
+
+    public static void testConfiguracao() {
+        Configuracao configuracao = new Configuracao();
+
+        String origemDados = configuracao.getOrigemDosDados();
+
+        System.out.println("Origem dos dados: " + origemDados);
     }
 }
