@@ -7,15 +7,14 @@ public class LongGenerator extends Generator<Long> {
     private LongGenerator() {
     }
 
-    @Override
-    public Long next() {
-        return value++;
-    }
-
-    @Override
-    public Generator<Long> getInstance() {
+    public static Generator<Long> getInstance() {
         if (instance == null)
             instance = new LongGenerator();
         return instance;
+    }
+
+    @Override
+    public Long next() {
+        return value++;
     }
 }

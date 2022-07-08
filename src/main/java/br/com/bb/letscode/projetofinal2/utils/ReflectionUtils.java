@@ -18,8 +18,9 @@ public class ReflectionUtils {
         return fields;
     }
 
-    public static <T extends Annotation> Field getAnnotatedField(Class<T> annotationClass) {
-        List<Field> classFields = getAllClassFields(annotationClass);
+    public static <T extends Annotation> Field getAnnotatedField(
+            Class<T> annotationClass, Class<?> fromClass) {
+        List<Field> classFields = getAllClassFields(fromClass);
         try {
             for (Field field : classFields) {
                 if (field.isAnnotationPresent(annotationClass)) {
@@ -33,8 +34,9 @@ public class ReflectionUtils {
         return null;
     }
 
-    public static <T extends Annotation> T getAnnotation(Class<T> annotationClass) {
-        Field annotatedField = getAnnotatedField(annotationClass);
+    public static <T extends Annotation> T getFieldWithAnnotation(
+            Class<T> annotationClass, Class<?> fromClass) {
+        Field annotatedField = getAnnotatedField(annotationClass, fromClass);
         return (annotatedField == null) ? null : annotatedField.getAnnotation(annotationClass);
     }
 }

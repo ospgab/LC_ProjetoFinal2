@@ -5,12 +5,11 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
 
-// import br.com.bb.letscode.projetofinal2.generator.GeneratedValue;
-// import br.com.bb.letscode.projetofinal2.generator.GenerationType;
+import br.com.bb.letscode.projetofinal2.generator.GeneratedValue;
 
 public class Compra extends BaseModel<Long> {
     @PrimaryKey
-    // @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue()
     private Long idCompra;
     private Cliente<?> cliente;
     private Cartao cartao; // Meio de pagamento
@@ -105,12 +104,12 @@ public class Compra extends BaseModel<Long> {
 
     @Override
     public String toString() {
-        return "Compra [\n\tcartao=" + cartao + ",\n\tcliente=" + cliente + ",\n\tdataCompra=" + dataCompra + ",\n\thoraCompra="
+        return "Compra [\n\tcartao=" + cartao + ",\n\tcliente=" + cliente + ",\n\tdataCompra=" + dataCompra
+                + ",\n\thoraCompra="
                 + horaCompra + ",\n\tidCompra=" + idCompra + ",\n\tprodutos=" + produtos + ",\n\tvalorDescontos="
-                + valorDescontos + ",\n\tvalorTaxas=" + valorTaxas + ",\n\tvalorTotal=" + valorTotal + ",\n\tvalorTotalAPagar="
+                + valorDescontos + ",\n\tvalorTaxas=" + valorTaxas + ",\n\tvalorTotal=" + valorTotal
+                + ",\n\tvalorTotalAPagar="
                 + valorTotalAPagar + "]";
     }
-
-   
 
 }

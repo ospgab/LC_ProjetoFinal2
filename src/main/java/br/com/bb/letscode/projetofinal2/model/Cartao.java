@@ -3,7 +3,7 @@ package br.com.bb.letscode.projetofinal2.model;
 import java.time.LocalDate;
 
 
-public class Cartao {
+public class Cartao extends BaseModel<Long> {
 
     private int numero;
     private int cvv;

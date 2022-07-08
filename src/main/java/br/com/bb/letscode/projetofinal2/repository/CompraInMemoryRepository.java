@@ -45,6 +45,7 @@ public class CompraInMemoryRepository implements BaseRepository<Compra, Long> {
 
     @Override
     public void persist(Compra entity) {
+        updateId(entity);
         this.listaCompra.add(entity);
     }
 

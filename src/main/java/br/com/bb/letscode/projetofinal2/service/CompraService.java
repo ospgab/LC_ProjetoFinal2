@@ -46,10 +46,14 @@ public class CompraService {
         compra.setValorDescontos(descontos);
         compra.setValorTaxas(acrescimos);
 
-        BigDecimal totalCompra = compra.getProdutos().stream().map(produto -> produto.getPreco())
+        BigDecimal totalCompra = compra.getProdutos()
+                .stream()
+                .map(produto -> produto.getPreco())
                 .reduce(BigDecimal.ZERO, BigDecimal::add);
-        
-        BigDecimal totalPagamento = totalCompra.subtract(descontos).add(acrescimos);
+
+        BigDecimal totalPagamento = totalCompra
+                .subtract(descontos)
+                .add(acrescimos);
 
         compra.setValorTotal(totalCompra);
         compra.setValorTotalAPagar(totalPagamento);

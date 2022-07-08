@@ -8,7 +8,7 @@ import br.com.bb.letscode.projetofinal2.utils.ReflectionUtils;
 
 public abstract class BaseModel<ID> {
     public ID getId() {
-        Field field = ReflectionUtils.getAnnotatedField(PrimaryKey.class);
+        Field field = ReflectionUtils.getAnnotatedField(PrimaryKey.class, getClass());
 
         if (field == null)
             return null;
@@ -25,25 +25,19 @@ public abstract class BaseModel<ID> {
     }
 
     public void setId(ID id) {
-        Field field = ReflectionUtils.getAnnotatedField(PrimaryKey.class);
+        Class<?> clazz = this.getClass();
+        Field field = ReflectionUtils.getAnnotatedField(
+                PrimaryKey.class, getClass());
 
         if (field == null)
             return;
 
         try {
-            Class<?> clazz = this.getClass();
-            String fieldName = field.getName();
-            String methodName = "set" + fieldName.substring(0, 1).toUpperCase()
-                    + fieldName.substring(1);
-            Method method = clazz.getDeclaredMethod(methodName, id.getClass());
-            // method.setAccessible(true);
-            method.invoke(this, id);
-        } catch (NoSuchMethodException e) {
-            throw new RuntimeException(e);
-        } catch (InvocationTargetException e) {
-            throw new RuntimeException(e);
-        } catch (IllegalAccessException e) {
-            throw new RuntimeException(e);
+            field.setAccessible(true);
+            field.set(this, id);
+        } catch (IllegalArgumentException | IllegalAccessException e) {
+            e.printStackTrace();
+            throw new RuntimeException("Erro ao atribuir o ID do Model");
         }
 
     }
