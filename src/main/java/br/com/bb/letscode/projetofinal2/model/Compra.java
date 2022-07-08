@@ -13,6 +13,7 @@ public class Compra extends BaseModel<Long> {
     // @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long idCompra;
     private Cliente<?> cliente;
+    private Cartao cartao; // Meio de pagamento
     private LocalDate dataCompra;
     private LocalTime horaCompra;
     private BigDecimal valorTotal;
@@ -20,7 +21,6 @@ public class Compra extends BaseModel<Long> {
     private BigDecimal valorDescontos;
     private BigDecimal valorTaxas;
     private List<Produto> produtos;
-
 
     public Cliente<?> getCliente() {
         return cliente;
@@ -94,14 +94,23 @@ public class Compra extends BaseModel<Long> {
         return this;
     }
 
-    @Override
-    public String toString() {
-        return "Compra [\n\tcliente=" + cliente + ",\n\tdataCompra=" + dataCompra + ",\n\thoraCompra=" + horaCompra
-                + ",\n\tidCompra=" + idCompra + ",\n\tprodutos=" + produtos + ",\n\tvalorDescontos=" + valorDescontos
-                + ",\n\tvalorTaxas=" + valorTaxas + ",\n\tvalorTotal=" + valorTotal + ",\n\tvalorTotalAPagar=" + valorTotalAPagar
-                + "]";
+    public Cartao getCartao() {
+        return cartao;
     }
 
-           
+    public Compra setCartao(Cartao cartao) {
+        this.cartao = cartao;
+        return this;
+    }
+
+    @Override
+    public String toString() {
+        return "Compra [\n\tcartao=" + cartao + ",\n\tcliente=" + cliente + ",\n\tdataCompra=" + dataCompra + ",\n\thoraCompra="
+                + horaCompra + ",\n\tidCompra=" + idCompra + ",\n\tprodutos=" + produtos + ",\n\tvalorDescontos="
+                + valorDescontos + ",\n\tvalorTaxas=" + valorTaxas + ",\n\tvalorTotal=" + valorTotal + ",\n\tvalorTotalAPagar="
+                + valorTotalAPagar + "]";
+    }
+
+   
 
 }

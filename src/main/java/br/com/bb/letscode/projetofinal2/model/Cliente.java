@@ -1,12 +1,12 @@
 package br.com.bb.letscode.projetofinal2.model;
 
-import br.com.bb.letscode.projetofinal2.service.Pagamento;
+import java.util.List;
 
-public class Cliente <T extends Pessoa>{
+public class Cliente<T extends Pessoa> {
 
     private Pessoa cliente;
     private Endereco endereco;
-    private Pagamento pagamento;
+    private List<Cartao> cartoes;
 
     public void setCliente(Pessoa cliente) {
         this.cliente = cliente;
@@ -22,6 +22,14 @@ public class Cliente <T extends Pessoa>{
 
     public String getEndereco() {
         return endereco.toString();
+    }
+
+    public List<Cartao> getCartoes() {
+        return cartoes;
+    }
+
+    public void setCartoes(List<Cartao> cartoes) {
+        this.cartoes = cartoes;
     }
 
     @Override

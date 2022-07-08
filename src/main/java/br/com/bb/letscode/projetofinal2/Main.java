@@ -6,6 +6,7 @@ import br.com.bb.letscode.projetofinal2.service.CompraService;
 import br.com.bb.letscode.projetofinal2.service.Configuracao;
 import br.com.bb.letscode.projetofinal2.strategy.FreteTipoA;
 import br.com.bb.letscode.projetofinal2.strategy.PromocaoTipoA;
+import br.com.bb.letscode.projetofinal2.validators.ValidaCompraCartao;
 import br.com.bb.letscode.projetofinal2.validators.ValidaCompraCliente;
 
 import java.math.BigDecimal;
@@ -51,7 +52,7 @@ public class Main {
                 .setCalcularDescontos(
                         List.of(new PromocaoTipoA()))
                 .setCompraValidators(
-                        List.of(new ValidaCompraCliente()));
+                        List.of(new ValidaCompraCliente(), new ValidaCompraCartao()));
     }
 
     public static void testCarrinho() {
@@ -94,6 +95,7 @@ public class Main {
 
         Compra compra = new Compra()
                 .setCliente(cliente)
+                .setCartao(cliente.getCartoes().get(0))
                 .setDataCompra(LocalDate.now()).setHoraCompra(LocalTime.now())
                 .setProdutos(carrinho.getListaDeProdutos());
 
@@ -110,7 +112,7 @@ public class Main {
         System.out.println("Origem dos dados: " + origemDados);
     }
 
-    private static Cliente<PessoaFisica> getClienteMock(){
+    private static Cliente<PessoaFisica> getClienteMock() {
         Pessoa p1 = new PessoaFisica();
         p1.setNome("Maria antonieta");
         p1.setSenha(123456);
@@ -126,6 +128,7 @@ public class Main {
         Cliente<PessoaFisica> novo = new Cliente<PessoaFisica>();
         novo.setCliente(p1);
         novo.setEndereco(end);
+        novo.setCartoes(List.of(cartao));
 
         return novo;
     }
